@@ -14,10 +14,19 @@ public class BetterRadar implements Runnable {
         this.executor = executor;
     }
 
+    public void notice(Scud enemyMissle) {
+        launchPatriot();
+    }
+
+    private void launchPatriot() {
+        executor.execute(this);
+    }
+
+
     @Override
     public void run() {
         for (int i = 0; i < numberOfMissles; i++) {
-            executor.execute(this);
+            battery.launchPatriot();
         }
     }
 
